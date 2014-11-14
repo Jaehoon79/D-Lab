@@ -1,0 +1,13 @@
+ -- ARM mbed OS
+	. base URL : https://mbed.org/
+	. dev  URL : https://developer.mbed.org/
+
+ -- mbed SDK
+   . URL : http://developer.mbed.org/handbook/mbed-SDK
+ 
+ -- mbed SDK Coding Style
+   . URL : http://developer.mbed.org/teams/SDK-Development/wiki/mbed-sdk-coding-style
+
+ -- mbed Library Internals
+   . URL : http://developer.mbed.org/handbook/mbed-library-internals
+   . git : https://github.com/mbedmicro/mbed.git
