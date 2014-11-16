@@ -1,2 +1,1 @@
-1. ToDo
-   - 2013 IOT Exhibition 
+1. Updated 2013 IoT Exhibition photo folder. - 2014.11.16 
