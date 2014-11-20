@@ -125,6 +125,14 @@ __Vectors:
 
 	.size	__Vectors, . - __Vectors
 
+/* [jaehoon] 
+ * .text  : start code section
+ * .thumb : assembler using thumb mode
+ * .thumb_func : Mark entry point as thumb coded
+ * .global : Means EXPORT
+ * .type : Used to set the type of a symbol (.type name , type description)
+ * .align : pad to the next four byte boundary
+ */
 	.text
 	.thumb
 	.thumb_func
