@@ -86,15 +86,32 @@ void SystemCoreClockUpdate (void)
  */
 void SystemInit (void)
 {
+  /* [jaehoon]
+   * The FPU is disabled from reset. 
+   * You must enable it before you can use any floating-point instructions
+   * URL  : http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0553a/BEHBJHIG.html
+   * Cortex-M4 UG : p.264
+   * SCB Register is defined at /CMSIS/Include/core_cm4.h
+   */
   #if (__FPU_USED == 1)
     SCB->CPACR |= ((3UL << 10*2) |                 /* set CP10 Full Access */
                    (3UL << 11*2)  );               /* set CP11 Full Access */
   #endif
 
 #ifdef UNALIGNED_SUPPORT_DISABLE
+  /* [jaehoon]
+   * If the silicon does not support unaligned memory access 
+   * enable the macro UNALIGNED_SUPPORT_DISABLE.
+   * In this case input, output, scratch buffers should be aligned by 32-bit
+   *
+   * Cortex-M4 UG : P.236
+   */
   SCB->CCR |= SCB_CCR_UNALIGN_TRP_Msk;
 #endif
-
+  /* [jaehoon]
+   * SystemCoreClock(global variable) is defined at here as 25Mhz
+   * this is declared at /Device/ARM/ARMCM4/Include/system_ARMCM4.h
+   */
   SystemCoreClock = __SYSTEM_CLOCK;
 
 }

@@ -134,13 +134,29 @@ __Vectors_Size  EQU   __Vectors_End - __Vectors
 ;;
         THUMB
 
+;; [jaehoon]
+;; PUBWEAK - Exports symbols to other modules.
+;; SECTION .text:CODE:REORDER(2) - Start Code section
+;;                                 Allows the linker to reorder segment parts
+;;                                 (2) - alignment of 4byts
         PUBWEAK Reset_Handler
         SECTION .text:CODE:REORDER(2)
 Reset_Handler
-        LDR     R0, =SystemInit
+
+;; [jaehoon] 
+;; SystemInit() is defined at /Device/ARM/ARMCM4/Source/system_ARMCM4.c
+
+        LDR     R0, =SystemInit   
         BLX     R0
         LDR     R0, =__iar_program_start
         BX      R0
+
+;; [jaehoon]
+;; Define Exception Handlers (infinite loops which can be modified)
+
+;; [jaehoon]
+;; NMI - Non-Maskable interrupt 
+;; (HW interrupt that cannot be ignored by standard interrupt masking tech.)
 
         PUBWEAK NMI_Handler
         SECTION .text:CODE:REORDER(1)
