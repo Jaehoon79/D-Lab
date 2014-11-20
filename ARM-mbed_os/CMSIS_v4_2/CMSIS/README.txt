@@ -40,3 +40,7 @@ Pack                    - CMSIS Software Packs.
                           Mechanism to install software, device support, APIs, and example projects.
 
 SVD                     - CMSIS SVD Schema files and Conversion Utility.
+
+
+** GNU Based CMSIS Build Guide **
+http://regalis.com.pl/en/arm-cortex-stm32-gnulinux/
