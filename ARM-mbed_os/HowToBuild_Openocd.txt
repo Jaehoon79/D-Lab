@@ -1,4 +1,8 @@
+
 ** OPENOCD 최신버전 설치 (Ubuntu 12.04 - precise) **
+
+0. openocd 참고 URL
+   - http://openocd.sourceforge.net
 
 1. Package 설치
    - sudo apt-get install libtool autoconf texinfo libusb-dev libusb-1.0.0-dev
