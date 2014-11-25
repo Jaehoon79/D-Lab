@@ -1,0 +1,55 @@
+** OPENOCD 최신버전 설치 (Ubuntu 12.04 - precise) **
+
+1. Package 설치
+   - sudo apt-get install libtool autoconf texinfo libusb-dev libusb-1.0.0-dev
+
+2. openocd 다운로드
+   - v0.8 이하는 stm32f401-nucleo board의 cfg파일이 없음.
+
+   2.1 openocd-0.8.0
+       site : http://sourceforge.net/projects/openocd/files/openocd/0.8.0/openocd-0.8.0.tar.gz/download
+
+   2.2 openocd 최신버전
+       site : git clone git://openocd.git.sourceforge.net/gitroot/openocd/openocd
+
+       ** git로 다운받을 경우 bootstrap 명령어를 실행시켜, configure 파일을 만들어 줘야합니다.
+
+
+3. Build
+
+   3.1 sudo ./configure --prefix=/opt/openocd/ --enable-jlink --enable-amtjtagaccel --enable-stlink --enable-ftdi
+    
+   * configure의 prefix 옵션의 디렉토리는 $PATH에 추가해주면 됩니다.
+   * configure summary
+ 
+	OpenOCD configuration summary
+	--------------------------------------------------
+	MPSSE mode of FTDI based devices        yes
+	ST-Link JTAG Programmer                 yes
+	TI ICDI JTAG Programmer                 yes (auto)
+	Keil ULINK JTAG Programmer              yes (auto)
+	Altera USB-Blaster II Compatible        yes (auto)
+	Segger J-Link JTAG Programmer           yes
+	OSBDM (JTAG only) Programmer            yes (auto)
+	eStick/opendous JTAG Programmer         yes (auto)
+	Andes JTAG Programmer                   yes (auto)
+	Versaloon-Link JTAG Programmer          yes (auto)
+	USBProg JTAG Programmer                 yes (auto)
+	Raisonance RLink JTAG Programmer        yes (auto)
+	Olimex ARM-JTAG-EW Programmer           yes (auto)
+	CMSIS-DAP Compliant Debugger            no
+
+
+   3.2 sudo make
+
+   3.3 sudo make install
+
+   ** /opt/openocd 에서 확인가능
+   ** STM32F401RE-NUCLEO의 경우 아래와 같이 초기화 가능
+      openocd -f /usr/share/openocd/scripts/board/st_nucleo_f401re.cfg
+
+   ** 실행 예)
+      telnet localhost 4444
+	> reset halt
+	> flash write_image erase main.hex
+	> reset run
