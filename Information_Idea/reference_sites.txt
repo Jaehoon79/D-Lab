@@ -1,0 +1,15 @@
+2013-11-17
+ - Android - Bluetooth Low Energy    
+     .http://developer.android.com/guide/topics/connectivity/bluetooth-le.html
+
+2013-11-12
+ - iBeacon Battery Drain on Apple vs Android: A Technical Report   
+     .http://www.aislelabs.com/reports/ibeacon-battery-drain-iphones/
+ - Beacon rescues the off-line market from  critical situation.
+     .http://blog.lgcns.com/565 , http://blog.lgcns.com/570
+2013-11-19
+ - BEEKn  Beacons, brands and culture on the Internet of Things
+     .http://beekn.net/
+ -  This specification is compatible with any Bluetooth core specification that includes the Generic Attribute Profile (GATT) specification and the Bluetooth Low Energy Controller specification
+     .https://developer.bluetooth.org/gatt/Pages/default.aspx
+
